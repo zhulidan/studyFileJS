@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function extend(obj2,obj){
+        for(var attr in obj){
+            /*console.log(attr);
+             console.log(obj[attr]);*/
+            obj2[attr]=obj[attr];
+
+        }
+    }
+    function Person(name,age){//构造函数中：都是私有的属性和方法；
+        this.name=name;
+        this.age=age;
+    }
+    Person.prototype.showName=function(){//原型：公有的属性和方法；
+        alert(this.name)
+    }
+    var p1=new Person('zhufeng',8);
+    console.dir(p1)
+
+    function Star(name,age,job){
+        Person.call(this,name,age);//call
+        this.job=job;
+    }
+    Star.prototype.showJob=function(){
+        alert(this.job)
+    }
+    extend(Star.prototype,Person.prototype);//拷贝对象-拷贝继承
+    var p2=new Star('xiaotian',18,'sing')
+    console.dir(p2)
+</script>
+</body>
+</html>

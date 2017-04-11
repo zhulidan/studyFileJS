@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+        body, html {
+            height: 1000%;
+            background: green;
+            background: -webkit-linear-gradient(top, green, lightsalmon, lightgreen, lightcoral, lightgrey, lightslategrey);
+            background: -moz-linear-gradient(top, green, lightsalmon, lightgreen, lightcoral, lightgrey, lightslategrey);
+            background: -ms-linear-gradient(top, green, lightsalmon, lightgreen, lightcoral, lightgrey, lightslategrey);
+            background: linear-gradient(top, green, lightsalmon, lightgreen, lightcoral, lightgrey, lightslategrey);
+        }
+
+        a {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            width: 60px;
+            text-align: center;
+            height: 60px;
+            line-height: 60px;
+            background: #fff;
+            box-shadow: 4px 4px 10px #000;
+            border-radius: 50%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<a href="javascript:;" id="btn">toTop</a>
+<script src="utils.js"></script>
+<script>
+    /*
+    * 1.实现回到顶部（通过定时器实现）
+    * 2.按钮是否显示（在触发系统滚轮事件的时候，页面的scrollTop 与 clientHeight进行比较）
+    * 3.当点击按钮开始往上走时，按钮立即消失；
+    * */
+    var oBtn=document.getElementById('btn');
+    window.onscroll=computedDisplay;
+    function computedDisplay(){
+        if(utils.win('scrollTop')>=utils.win('clientHeight')){
+            utils.setCss(oBtn,'display','block');
+        }else{
+            utils.setCss(oBtn,'display','none');
+        }
+    }
+    oBtn.onclick=function(){
+        utils.setCss(oBtn,'display','none');
+        window.onscroll=null;
+        var target=utils.win('scrollTop');
+        var duration=500;
+        var interval=10;
+        var step=(target/duration)*interval;
+        var timer=setInterval(function(){
+            var curT=utils.win('scrollTop');
+            if(curT<=0){
+                clearInterval(timer);
+                window.onscroll=computedDisplay;
+                return;
+            }
+            curT-=step;
+            utils.win('scrollTop',curT);
+        },interval)
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

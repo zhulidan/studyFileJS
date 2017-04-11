@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //alert(isNaN('2'))
+    function sum(){
+        var total=0;
+        for(var i=0; i<arguments.length; i++){
+            //total+=arguments[i]
+            var cur=arguments[i];
+            if(!isNaN(cur)){
+                total+=Number(arguments[i]);//如果不用Number，很可能字符串拼接；
+            }
+        }
+        return total;
+    }
+    alert(sum(1,2));
+    alert(sum(1,2,'3','13px'));
+</script>
+</body>
+</html>

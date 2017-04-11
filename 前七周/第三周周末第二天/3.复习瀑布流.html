@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        #div{
+            width: 900px;
+            margin:0 auto;
+        }
+        ul{
+            float: left;
+            width: 280px;
+            margin:10px;
+        }
+        ul li{
+            font-size: 50px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+<script src="utils.js"></script>
+<script>
+    var oDiv=document.getElementById('div');
+    var aUl=oDiv.getElementsByTagName('ul');
+    var n=0;
+    /*
+    *1.创建一个元素，并给其赋值随机高和随机背景，输出这个元素
+    *2.动态创建50个元素，每次插到最短的ul里；
+    *3.给系统添加onScroll事件；当如何条件时，创建50个li;
+    * */
+    function rnd(n,m){
+        return Math.round(Math.random()*(m-n)+n)
+    }
+    function createLi(){
+        var oLi=document.createElement('li');
+        oLi.style.height=rnd(100,400)+'px';
+        oLi.style.background='rgb('+rnd(0,255)+','+rnd(0,255)+','+rnd(0,255)+')';
+        return oLi;
+    }
+    createLi50()
+    function createLi50(){
+        for(var i=0; i<50; i++){
+            n++;
+            var oLi=createLi();
+            oLi.innerHTML=n;
+            var ary=utils.listToArray(aUl);
+            ary.sort(function(a,b){
+                var a= a.offsetHeight;
+                var b= b.offsetHeight;
+                return a-b;
+            })
+            ary[0].appendChild(oLi);
+        }
+    }
+    window.onscroll=function(){
+        var winBottom=utils.win('scrollTop')+utils.win('clientHeight');
+        if(winBottom>=document.body.scrollHeight-400){
+            createLi50();
+        }
+
+    }
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

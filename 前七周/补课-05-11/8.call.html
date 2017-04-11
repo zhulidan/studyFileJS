@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj={name:'zhufeng'}
+    function fn(n1,n2){
+        alert(this+':'+(n1+n2));
+    }
+    fn.call(obj,2,3);
+</script>
+</body>
+</html>

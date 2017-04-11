@@ -1,0 +1,43 @@
+预解释
+var i;
+var fn=xxff00;
+var f;
+JS代码执行
+i=3;/6/7/14/15/16/32/33;
+f=fn()->xxff11;
+	私有作用域 fn() xxff00();
+	JS执行
+	window.i*=2;
+	return xxff11;
+f(3)=>21
+	私有作用域 xxff11();
+	形参 n=3;
+	console.log(3*7)=>21
+fn()(3);=>45
+	私有作用域 fn() xxff00();
+	window.i*=2;
+	return xxff22;
+	形参 n=3;
+	console.log(3*15)=>45
+f(4)=>64
+	私有作用域 xxff11();
+	形参 n=4;
+	console.log(4*16)=>64
+
+fn()(3)=>99
+	私有作用域 fn() xxff00();
+	window.i*=2;
+	return xxff33;
+	形参 n=3;
+	console.log(3*33)=>99
+
+
+
+
+
+
+
+
+
+
+	

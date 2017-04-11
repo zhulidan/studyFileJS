@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //封装一个方法 取n-m之间的随机数
+    function getRandom(n, m) {
+        var n = Number(n);
+        var m = Number(m);
+        //如果n或者m之间任意一个不是有效数则返回一个随机数
+        if (isNaN(n) || isNaN(m)) {
+            return Math.random();
+        }
+        //如果n>m时 n和m交换位置
+//        var temp = null;
+//            temp = n;
+//            n = m;
+//            m = temp;
+//        n = n(10) + m(5);
+//        m = n(15) - m(5);
+//        n = n(15) - m(10);
+        n = n + m;
+        m = n - m;
+        n = n - m;
+        return Math.random() * (m - n) + n;
+
+    }
+    getRandom(5, 10);
+
+    // a||b 如果a为真则返回a的值,如果a为假则返回b的值
+    // a&&b  如果a为真则返回b的值,如果a为假则返回a的值
+    //    5 || 3 ->5
+    //    false || 0 ->0
+    //    true ||1 ->true
+    //
+    //    false && 0 ->false
+    //    优先级  &&>||
+    //    0 && 3 ||5 ->0&&3->0  0||5->5
+    //    3 || 0 && 5  ->0&&5 ->0 3||0->3
+</script>
+</body>
+</html>

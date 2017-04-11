@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    (function(){
+        window.myChildren=function(oEle){
+            var ary=[]//接受符合条件的元素
+            var aChild=oEle.childNodes;
+            for(var i=0; i<aChild.length; i++){
+                var cur=aChild[i];
+                if(cur.nodeType==1){
+                    ary.push(cur)
+                }
+            }
+            return ary;
+        }
+    })();
+</script>
+</body>
+</html>

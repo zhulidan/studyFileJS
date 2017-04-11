@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+对象中，如果属性为数字，需要注意两点：
+1）获取的时候，数字必须放在中括号里
+2）遍历的时候，如果属性名为数字，会按照数字顺序来排；
+-->
+<script>
+    var obj={3:'zhufeng',0:'peixun',1:18}
+    var obj2={};
+    //alert(obj["name"])
+   // alert(obj[0])
+//console.log(obj)
+    extend(obj2,obj)
+    function extend(obj2,obj){
+        for(var attr in obj){
+            /*console.log(attr);
+            console.log(obj[attr]);*/
+            obj2[attr]=obj[attr];
+
+        }
+    }
+</script>
+</body>
+</html>

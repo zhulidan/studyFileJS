@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1.其他数据类型转为number数据类型
+1）转换方式
+    严格：Number()
+    非严格：parseInt() parseFloat()
+2）判断是否数字 isNaN();
+3)规律
+    1.boolean true：1; false:0;
+    2.null:0; undefined:NaN;
+    3.[] toString-""-0;
+2.其他数据类型转为boolean；
+1）转换方式：
+Boolean(); !;!!; if(表达式)； if(单独值）。。。
+![]==false;
+2）转换规律：
+除了0,NaN,null,undefined,'';为false，其他都为真；
+3.比较 （==隐式数据类型; === 类型+值）
+隐式数据类型：== ！= - * /;
+1）对象==对象  地址  {}=={} function(){}==function(){}
+2）对象==字符串 字符串 []=='';
+3)对象==数字  number
+4）对象==boolean  number  []==false
+5)字符串==数字  number  ''==0;
+6)字符串==boolean  number  ‘’==false；
+7）数字==boolean  number
+8)null==undefined ->true; null===undefined->false;
+9)NaN==NaN(NaN跟任何值都不相等，包含他自己)
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

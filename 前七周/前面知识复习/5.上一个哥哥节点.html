@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul><li id="li1"></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    var oLi=document.getElementById('li1');
+    //alert(oLi.previousSibling)
+    /*if(oLi.previousSibling.nodeType!=1){
+        alert()
+    }*/
+    // == 反义词 ！=
+    //=== 反义词 ！==
+    (function(){
+        window.prev=function(oEle){
+            //判断高级浏览器
+            if(oEle.previousElementSibling){
+                return oEle.previousElementSibling
+            }
+            var pre=oEle.previousSibling;
+            alert(pre&&pre.nodeType!=1)
+            while(pre&&pre.nodeType!=1){
+                pre=pre.previousSibling;
+            }
+            return pre;
+        }
+    })();
+    prev(oLi)
+</script>
+</body>
+</html>

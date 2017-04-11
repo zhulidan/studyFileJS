@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="按钮1"/>
+<input type="button" value="按钮2"/>
+<input type="button" value="按钮3"/>
+<input type="button" value="按钮4"/>
+<script>
+    var aInput=document.getElementsByTagName('input');
+    //1.自定义属性
+    /*for(var i=0; i<aInput.length; i++){
+        aInput[i].index=i;
+        aInput[i].onclick=function(){
+            alert(this.index);
+        }
+    }*/
+    for(var i=0; i<aInput.length; i++){
+        //alert(i)
+        (function(index){
+            aInput[index].onclick=function(){
+                alert(index);
+            }
+        })(i)
+    }
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

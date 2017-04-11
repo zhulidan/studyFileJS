@@ -1,0 +1,66 @@
+git config --global user.name "zfpx" 
+   
+git config --global user.email "zfpx@126.com"  
+
+
+mkdir test  创建文件夹test
+
+ls 查看目录
+
+cd test 进入到test的文件夹 
+
+pwd 查看路径
+
+git init 初始化本地仓库
+
+git add index.txt 添加到本地仓库的暂存区
+
+git commit -m"注释" 提交到仓库
+
+
+
+一.本地仓库和远程仓库关联起来
+
+git remote add origin https://github.com/amgYen/testFactory.git
+
+-->origin 自己可以随便起   https://github.com/amgYen/testFactory.git 是远程仓库的地址
+
+查看关联的远程地址
+git remote -v 
+
+解除关联 
+git remote rm origin 
+
+二.远程仓库的内容更新到本地仓库
+
+git pull origin master
+
+三.把本地的内容提交到远程仓库 
+git push -u origin master
+
+-u 把本地的主分支(master)和远程的主分支(master)关联起来 (-u只需要第一次写,下一次就不需要写了)直接 git push origin master就可以了
+
+
+fork 课件仓库的地址  
+
+1.git clone https://github.com/你自己github的用户名/javascript201604.git 把远程的仓库地址克隆到本地 
+
+2.把本地的内容添加到本地仓库去 git add 文件名 git commit -m"注释
+
+3.关联珠峰培训课件仓库地址git remote add amgYen https://github.com/zhufengpeixun/JavaScript201604.git
+
+
+4.到自己github上的javascript201604这个仓库,点击按钮New pull request ->create pull request
+
+
+
+获得每日课件
+
+git clone https://github.com/zhufengpeixun/JavaScript201604.git
+
+git pull origin master  
+
+
+git 视频地址 http://www.zhufengpeixun.cn/course/3/lesson/list
+
+

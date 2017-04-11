@@ -1,0 +1,40 @@
+R:
+var num;
+var obj;
+var fn;
+JS:
+num=1/4/14;
+obj=xxff00->{num:2/22}
+obj.fn=xxff11;
+	Per:
+	R:num=2/3/4/5;
+	window.num=2*2;
+	num++;
+	return xxff11;
+fn=obj.fn-xxff11;
+fn(10)=>4
+	Per:
+	R:n=10; 
+	window.num+=10;
+	num++;
+	console.log(num)=>4
+obj.fn(20)=>5
+	Per:
+	R:n=20;
+	obj.num+=20;
+	num++
+	console.log(num)=>5
+console.log(num,obj.num)
+num=>14 
+obj.num=>22
+
+
+
+
+
+
+
+
+
+
+
