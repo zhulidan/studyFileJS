@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    var total = 5;
+//    function sum(a,b,c){//形参
+//        //没有给形参赋值的时候,它的值就是undefined
+//        var total = null;
+//        total  = a+b+c;//10+5+undefined->15+undefined->15+NaN=>NaN
+//        return total;
+//    }
+//    var a = sum(10,5); //实参
+//    console.log(a);
+
+
+    //如果sum运行的时候,传了两个参数 -->a+b
+    //如果sum运行的时候,传了三个参数 -->a+b+c
+
+  /*  function sum(a,b,c){
+      //方法有两个内置对象:arguments和this
+        //arguments的作用是用来存实参的
+        //{0:10,1:5,callee:function sum(){},length:2}
+        // {0:5,1:10,2:6,callee:function sum(){},length:3}
+        //数字属性名对应值指的是我们传的实参
+        //length:传的实参的个数
+        //callee:方法本身
+//        console.dir(arguments);
+        var  total =null;
+        if(arguments.length==2){
+            total = a+b;
+        }else if(arguments.length==3){
+            total = a+b+c;
+        }
+        return total;
+
+    }
+    //如果方法运行的时候,传参的个数不确定,咋们就不写形参,用方法内置的对象arguments
+    console.log(sum(10,5));
+    console.log(sum(5,10,6));
+*/
+
+    function sum(){
+        var total = null;
+        //arguments
+        //arguments[0]
+        //{0:10,1:5,callee:function sum(){},length:2}
+        //{0:5,1:10,2:6,callee:function sum(){},length:3}
+        if(arguments.length ==2){
+            total = arguments[0]+arguments[1];
+        }else if(arguments.length ==3){
+            total = arguments[0]+arguments[1]+arguments[2];
+        }
+        return total;
+    }
+    console.log(sum(10,5));
+    console.log(sum(10,5,6));
+    //如果传的实参有100个,或者不确定写了实参有多少个,求实参之和?
+
+
+</script>
+</body>
+</html>

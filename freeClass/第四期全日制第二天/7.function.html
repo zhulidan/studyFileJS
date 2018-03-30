@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function sum(){
+        var total = null;//起了个标识的作用
+        total = Math.sqrt(Math.pow(3,2)+Math.pow(4,2));
+       // return total;
+       return total;
+        total += 10; //total = total+10;
+    }
+     var total = sum();//把sum方法运行的结果返回给变量total
+    console.log(total);
+
+    /*
+        return 并不是一定得写,得看需不需要返回值
+    * 1.如果没写return或者return后面没写任何数据,则方法的返回值就是undefined;
+    * 2.遇到return;方法终止运行,后面的js语句都不再执行
+    * */
+
+</script>
+</body>
+</html>

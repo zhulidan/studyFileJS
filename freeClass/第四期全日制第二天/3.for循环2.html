@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1">
+    <ul id="list">
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>44444</li>
+    </ul>
+</div>
+<script>
+    var oUl = document.getElementById("list");
+    var oLis = oUl.getElementsByTagName("li");
+//    oLis[0].style.backgroundColor = "pink";
+//    oLis[1].style.backgroundColor = "pink";
+//    oLis[2].style.backgroundColor = "pink";
+//    //    oLis[3].style.backgroundColor = "pink";
+//    oLis[oLis.length-1].style.backgroundColor = "pink";
+
+    //这种重复的事情就让程序来帮我们完成
+    //一次又一次的做着重复的事情
+    /*for循环语句执行的步骤
+    * 1.设置循环语句的初始值
+    * 2.设置循环条件
+    * 3.如果满足循环条件,则循环体里的内容,不满足条件,则退出循环
+    * 4.执行累加或累减操作
+    * */
+
+    for(var i = 0;i<oLis.length;i++){
+        //i从0 - 3
+        //循环体的内容执行了4次
+        oLis[i].style.backgroundColor = "pink";
+    }
+    //谷歌浏览器调试:逐断点调试按f8,逐句调试按f11
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

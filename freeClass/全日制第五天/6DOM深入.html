@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="list">
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+</ul>
+<div id="div1">
+    <p></p>
+
+    <p></p>
+</div>
+<script>
+    /*firstChild
+     firstElementChild
+     lastChild
+     lastElementChild
+     previousSibling
+     previousElementSibling
+     nextSibling
+     nextElementSibling
+     children
+     childNodes
+     parentNode*/
+
+    /* getChildren方法分析步骤
+     * 1.获得ele下的所有的子节点
+     * 2.从所有的子节点中找出元素节点(nodeTye==1)
+     * 3.找出后存入到数组(ary)里返回
+     * */
+
+    //获得某个元素(ele)下的所有的子元素节点
+    function getChildren(ele) {
+        var ary = [];//保存元素节点
+        var children = ele.childNodes;//获得所有的子节点
+        for (var i = 0; i < children.length; i++) {
+            if (children[i].nodeType == 1) {//元素节点
+                //ary[ary.length] = children[i];
+                ary.push(children[i])
+            }
+        }
+        return ary;
+    }
+    var oUl = document.getElementById("list");
+    console.log(getChildren(oUl));//获得ul下的所有的子元素节点
+    var oDiv = document.getElementById("div1");
+    console.log(getChildren(oDiv));//获得div下的所有的子元素节点
+
+</script>
+</body>
+</html>

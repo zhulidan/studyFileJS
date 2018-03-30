@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        #tab{
+            width: 500px;
+            margin: 30px auto;
+        }
+        #tab ul{
+            text-align: center;
+        }
+        #tab li{
+            display: inline-block;
+            text-align: center;
+            background: orange;
+            padding: 10px;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        #tab li.selectLi{/*设置当前选中的li的样式*/
+            background: palegreen;
+        }
+        #tab div{
+            height: 200px;
+            background: palegreen;
+            display: none;
+        }
+        #tab div.selectDiv{/*选中的li对应的div显示*/
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="tab">
+        <ul>
+            <li >选项卡一</li>
+            <li >选项卡二</li>
+            <li >选项卡三</li>
+            <li>选项卡四</li>
+        </ul>
+        <div >内容一</div>
+        <div >内容二</div>
+        <div >内容三</div>
+        <div>内容四</div>
+    </div>
+</body>
+</html>
+<script>
+    //选项卡思路分析
+    //1.当前点击的li的类名是selectLi,其他的li的类名为""
+    //2.让相对应的div的类名是selectDiv,其他的div的类名为""
+
+    //获取所有的li标签和所有的div标签
+    var oTab = document.getElementById("tab");//最外层id名是tab的div
+    var oLis = oTab.getElementsByTagName("li");//oTab下的所有的li标签
+    var oDivs = oTab.getElementsByTagName("div");//oTab下的所有的div标签
+    //console.log(oLis);
+
+    function changTab(n){
+        for(var i = 0;i<oLis.length;i++){
+            oLis[i].className = "";
+            oDivs[i].className = "";
+        }
+        oLis[n].className ="selectLi";
+        oDivs[n].className = "selectDiv";
+    }
+    oLis[0].onclick = function(){
+       changTab(0);
+    };
+    oLis[1].onclick = function(){
+        changTab(1)
+    };
+    oLis[2].onclick = function(){
+        changTab(2)
+    };
+    oLis[3].onclick = function(){
+        changTab(3);
+    };
+
+
+
+</script>

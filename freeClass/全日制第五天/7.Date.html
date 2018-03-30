@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1" style="font-size: 50px"></div>
+<script>
+    var oDiv = document.getElementById("div1");
+    function getComputedTime(){
+        var res = null;
+        var now = new Date();//以当前电脑时间为基准,创建时间对象
+        var year= now.getFullYear();//年
+        var month = now.getMonth()+1;//月 (0-11)->(1-12)
+        var date = now.getDate();//日
+        var week = now.getDay();//(0-6)星期几
+        var hour = now.getHours();//时
+        var minute = now.getMinutes();//分
+        var second = now.getSeconds();//秒
+        var mSecond = now.getMilliseconds();//毫秒
+        switch (week){
+            case 0 :
+                week = "星期日";
+                break;
+            case 1 :
+                week = "星期一";
+                break;
+            case 2 :
+                week = "星期二";
+                break;
+            case 3 :
+                week = "星期三";
+                break;
+            case 4 :
+                week = "星期四";
+                break;
+            case 5 :
+                week = "星期五";
+                break;
+            case 6 :
+                week = "星期六";
+                break;
+
+        }
+
+        res = year+"年"+month+"月"+date+"日"+week+hour+"时"+minute+"分"+second+"秒";
+
+        oDiv.innerHTML = res;
+    }
+
+     getComputedTime();
+
+    //定时器
+    window.setInterval(function(){
+        getComputedTime();
+    },1000)//1000ms = 1s
+    //定时器:浏览器提供了一个方法,能在一定时间内去做一件事
+    //setTimeout([function(){}],duration)
+    //setInterval([function(){}],duration)
+    var  i = 0;
+    //var timer = window.setTimeout(function(){i++;},1000)
+    //console.log(timer);
+    var timer2 = window.setInterval(function(){//每隔1秒运行一次(每隔1s就调用下自身)
+        i++;
+        console.log(i);
+        if(i>10){
+            window.clearInterval(timer2);
+        }
+    },1000)
+
+    //定时器
+    //window.setTimeout([function(){}],duration) -->只执行一次
+    //window.setInterval([function(){}],1000)-->每隔1s运行一次(每隔1s就调用下自身)
+
+    //清除定时器
+    //window.clearTimeout(定时器的编号)
+    //window.clearInterval(定时器的编号)
+
+
+
+
+</script>
+</body>
+</html>

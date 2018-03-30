@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">111</div>
+<script>
+    //在javascript中大多数的方法都是通过事件驱动其运行的
+    //常用的事件(click(鼠标点击),mouseover(鼠标划过),mouseout(鼠标划出)...)
+    var oDiv = document.getElementById("div1");
+    oDiv.onclick = function sum(){
+        alert("hello");
+    }
+    oDiv.onclick = function (){
+        alert("hello");
+    }
+
+    function sum(){
+        alert("hello");
+    }
+    oDiv.onclick = sum;
+    //oDiv.onclick = sum();//不管写在哪,sum()就立马运行了
+</script>
+</body>
+</html>

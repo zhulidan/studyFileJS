@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //快速排序思想:
+    //1.选一个基准点,基准点一般选择中间的这一项
+    //2.再让中间这一项和其他的项进行比较,如果比中间这一项小则放在左边,如果比中间这一项大则放在右边
+    //3.重复的执行上面两个步骤,直到中间项左右只有一项或者没有内容时结束
+
+    var ary = [12,3,45,13,43,32,45,56,77];
+    function quickSort(ary){
+        //如果左右两边只有一项或者没有
+        if(ary.length<=1){
+            return ary;
+        }
+
+        //得到基准点的索引 9/2=Math.floor(4.5)
+        var pointIndex = Math.floor(ary.length/2);
+        //得到中间这一项,并且从原数组中删除
+        var pointValue = ary.splice(pointIndex,1);
+        var centerValue = pointValue[0];//中间这一项的值
+        var left = [];
+        var right = [];
+        //console.log(ary);//[12, 3, 45, 13, 32, 45, 56, 77]
+        //console.log(pointValue);//[43]
+        //中间这一项和其他项进行比较
+        for(var  i = 0;i<ary.length;i++){
+            var cur = ary[i];
+            cur<centerValue?left.push(cur):right.push(cur);
+        }
+
+        return quickSort(left).concat(pointValue,quickSort(right));
+
+    }
+   console.log(quickSort(ary));
+</script>
+</body>
+</html>

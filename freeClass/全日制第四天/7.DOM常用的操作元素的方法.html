@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .p1{
+
+        }
+        ul>li{
+
+        }
+    </style>
+</head>
+<body>
+<p class="p1">11111</p>
+<p class="p1">22222</p>
+<div name = "aa"></div>
+<div name = "aa"></div>
+<input type="text" name="bc"/>
+<input type = "text" name ="bc"/>
+<ul>
+    <li class="a"></li>
+    <li class="a b"></li>
+    <li class="a b c"></li>
+</ul>
+<script>
+    //DOM (document object model)文档对象模型 提供了操作页面元素常用的属性和方法
+    //1.document.getElementById("div1")  通过id名获得元素,获得的元素是唯一的 (主体也只能是document)
+    //2.var oPs = document.getElementsByTagName("p");//通过标记名获得一组元素
+        //console.log(oPs);
+        //oPs[0].style.backgroundColor = "red"
+    //3.获得类名是a的标签 document.getElementsByClassName("a") ie6-ie8不兼容
+    //var oAs = document.getElementsByClassName("a b c");
+    //console.log(oAs);
+    //4.通过name属性值获得一组元素(主体也只能是document)
+    var oInputs =  document.getElementsByName("bc");//ie不兼容非表单元素的name属性
+    console.log(oInputs.length);
+    //5.通过选择器获取一个或一组元素(在移动端常用)
+    console.log(document.querySelector(".p1"));//只能获得一个元素
+    console.log(document.querySelectorAll(".p1"));
+    //console.log(document.querySelectorAll("ul>li"));//获得是一组元素
+
+
+
+</script>
+</body>
+</html>

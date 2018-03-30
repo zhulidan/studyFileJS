@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>动态操作页面元素</title>
+    <style type="text/css">
+        #div1{
+            width:100px;
+            height: 100px;
+            background: red;
+        }
+        .aa{
+            color: orange;
+            font-size: 40px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="div1"><p>11111</p></div>
+<script>
+    //createElement createTextNode appendChild  insertBefore replaceChild
+    //removeChild  cloneNode  getAttribute setAttribute
+
+    /*1.createElement 创建元素节点(主体只能是document)
+        var div2  = document.createElement("div");
+        div2.id = "div2";
+        div2.innerHTML = "我的是添加的div2";
+    */
+
+    /*2.createTextNode  创建文本节点(主体只能是document)
+        var oText = document.createTextNode("我的是添加的div2");
+        把文本节点添加到div2里
+        div2.appendChild(oText);
+     */
+
+    /*3.appendChild()把节点添加到页面上(添加到末尾的位置) (主体是操作元素的父标签)
+        document.body -->body元素
+        document.documentElement -- >html元素
+        document.body.appendChild(div2);
+     */
+
+    /*4.insertBefore(newEle,oldEle) 把newEle插入到oldEle之前
+        var div1 = document.getElementById("div1");
+        document.body.insertBefore(div2,div1);
+     */
+
+    /*5.replaceChild(newEle,oldEle) 用newEle替换oldEle
+        document.body.replaceChild(div2,div1);
+        div1.parentNode.replaceChild(div2,div1)
+     */
+
+    /*6.removeChild(ele) 删除ele元素
+        div1.parentNode.removeChild(div1);
+     */
+
+    /*7.cloneNode(true)克隆某个元素(深度克隆(true)和浅克隆(false或者参数没写))
+        深度克隆是将后代全部都克隆出来
+        浅克隆是仅仅克隆本身
+        var oDiv3 = div1.cloneNode(true);//仅仅是克隆节点,并没有在页面上显示出来,克隆完之后还得添加到页面上去
+        document.body.appendChild(oDiv3);
+     */
+
+    /*8.自定义属性
+        div1.zhufeng = "peixun";
+        div1["zhueng"] = "peixun";
+        console.log(div1["zhufeng"]);
+        div1.index = "111";
+
+        setAttribute(属性名,值)设置属性(自定义的属性/固有属性)
+        div1.setAttribute("zhufeng","peixun");
+        getAttribute(属性名) 得到属性值
+        console.log(div1.getAttribute("zhufeng"));
+        div1.setAttribute("id","div3");
+        div1.setAttribute("class","aa"); //ie6-ie7不兼容 class的属性值能设置成功,但是样式不起作用
+        console.log(div1.getAttribute("index"))//null  不可以,得一一对应
+     */
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

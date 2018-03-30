@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1">
+    <ul id="list">
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>44444</li>
+    </ul>
+</div>
+<script>
+    /*通过id名获得元素*/
+//    var oDiv = document.getElementById("div1");
+//    var oUl = oDiv.getElementById("list");
+    //上面的这种写法是错误的,不能在一个唯一里获取另一个唯一,只能通过document.getElementById()这样获取元素
+    var oUl = document.getElementById("list");
+    /*获得id名是list下的所有的li标签*/
+    /*通过(tagName)标记名li获得一组元素集合(li标签的集合)*/
+    var oLis = oUl.getElementsByTagName("li");//对象类型的
+    //oLis里数字属性名可以看成是每个li的编号,第一个li的编号是0,最后一个li的编号是oLis.length-1
+    console.log(oLis[0]==oLis.item(0))//true 获得的是第一个li标签
+    oLis[0].style.backgroundColor = "pink";
+    oLis[1].style.backgroundColor = "pink";
+    oLis[2].style.backgroundColor = "pink";
+//    oLis[3].style.backgroundColor = "pink";
+    oLis[oLis.length-1].style.backgroundColor = "pink";
+
+    //这种重复的事情就让程序来帮我们完成
+
+
+
+    
+    
+</script>
+</body>
+</html>

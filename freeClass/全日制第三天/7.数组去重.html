@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //数组去重:把数组中重复的项去掉
+    var ary = [1,2,33,33,33,4,2,1]; //[1,2,33,4]
+        //i = 2 j= 3   [1,2,33,33,4,2,1]
+                //j =3
+
+    //方法一:通过双for循环去重
+    //第一次  第一项和第二项及以后的数比较,如果发现重复的,则从数组中删除重复的项
+    //第二次  第二项和第三项及以后的数比较,如果发现重复的,则从数组中删除重复的项
+    //第三次  第三项和第四项及以后的数比较
+    //.....
+    //当到最后一项的时候,就不会去比较了,因为最后一项的后面没有了,所以共比较ary.length-1
+
+    for(var i = 0;i<ary.length-1;i++){//控制比较多少次,控制着起始比较的那一项
+        for(var j = i+1;j<ary.length; j++){
+            if(ary[i]==ary[j]){
+                ary.splice(j,1);//从数组里删除索引是j的这一项 会发生数组的塌陷
+                j--; //这样索引就没有发生变化
+            }
+        }
+    }
+    console.log(ary);
+
+
+    //方法二:利用对象的原理去重
+    //把数组的每一项分别作为对象的属性名和属性值存在对象里
+    //如果发现对象里已经存了这一项,说明这一项就是重复,则把这一项删掉
+//    var ary = [1,2,33,33,33,4,2,1]
+//    var  obj = {};//{1:1,2:2,33:33}
+//    for(var i = 0;i<ary.length;i++){
+//        var cur = ary[i];//数组里的每一项
+//        //cur -->33
+//        if(obj[cur] == cur){//如果相等说明是重复的
+//            ary.splice(i,1);//数组的塌陷
+//            i--;
+//        }else{
+//            obj[cur] = cur;
+//        }
+//    }
+//    obj = null;//对象释放掉
+
+    //continue是跳出本次循环还会执行i++
+    //break跳出本层循环,也就是跳出for循环,不会再执行i++
+    //遇到continue或者break关键词,后面的代码都不再执行
+    var ary = [1,2,33,33,33,4,2,1]
+     var  obj = {};//利用了一下对象来判断数组里这一项是否是重复项
+    for(var i = 0;i<ary.length;i++){
+        var cur = ary[i];//数组里的每一项
+        //cur -->33
+        if(obj[cur] === cur){//如果相等说明是重复的
+            ary.splice(i,1);//数组的塌陷
+            i--;
+            continue;
+        }
+            obj[cur] = cur;//obj[1] = 1 {1:1,2:2,33:33}
+
+    }
+    obj = null;//对象释放掉
+
+
+//    var obj = {0:"aa",1:"bb"}
+//   // obj[0] ->"aa"
+//    obj[2] = 2;
+//    obj= {0:"aa",1:"bb",2:2}
+//    obj[2]--> 2
+
+
+    //方法三:优化性能的数组去重的方法
+    var ary = [1,2,33,33,33,4,2,33,1];
+    var obj = {};
+    for(var i = 0;i<ary.length;i++){
+        var cur = ary[i];
+        if(obj[cur]==cur){
+            //让最
+            // 后一项的内容替换重复的这一项
+            ary[i] = ary[ary.length-1];
+            //把数组的最后一项删掉
+            ary.length--;
+            //替换的后这一项还得再验证一遍
+            i--;
+        }else{
+            obj[cur] = cur;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{
+            width: 800px;
+            height: 40px;
+            background: palegreen;
+            font-size: 30px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        #div1 span{
+            color: orange;
+
+        }
+    </style>
+
+</head>
+<body>
+    <div id="div1">距离下课还有<span>2小时30分10秒</span></div>
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById("div1");
+    var oSpan = oDiv.getElementsByTagName("span")[0];
+    function getCountTime(){
+        var now  = new Date();//以当前时间为基准获得时间对象
+       // now.getTime() 获得当前时间距离1970 00 :00 的毫秒数
+        var cur  = new Date("2016/4/28 19:30:00"); //以参数为基准创建的时间对象
+        //cur.getTime()
+        var spanTime = cur.getTime()-now.getTime();//当前时间距离7点半这个时间的毫秒数
+        //把这个毫秒数转化成时分秒
+        //1小时 = 60*60*1000毫秒
+        //1分钟 = 60*1000毫秒
+        //1秒 = 1000毫秒
+        //1.求出有多少小时
+        var hour = Math.floor(spanTime/(60*60*1000));
+        //2.除小时毫秒数外还剩下多少毫秒数
+        spanTime = spanTime - hour*(60*60*1000);
+        //3.求出有多少分钟
+        var minute = Math.floor(spanTime/(60*1000));
+        //4.除分钟毫秒数外还剩下多少毫秒数
+        spanTime  = spanTime - minute*(60*1000);
+        //5.求出有多少秒
+        var second = Math.floor(spanTime/1000);
+        oSpan.innerHTML = hour+"时"+minute+"分"+second+"秒";
+    }
+    getCountTime();
+
+    //定时器,每隔一秒运行一次
+    window.setInterval(function(){
+        getCountTime();
+    },1000)
+</script>

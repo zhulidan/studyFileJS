@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var num1 = 12;
+    var num2 = num1;
+    num2 = 13;
+    console.log(num1);//12
+    console.log(num2);//13
+
+    var obj1 = {"name":"liLy"};
+    var obj2 = obj1;
+    obj2.name = "马志豪";
+    var obj3 = {"name":"aaa"};
+    obj2 = obj3;
+    console.log(obj1);//{"name":"马志豪"}
+    console.log(obj2);//{"name":"aaa"}
+
+    //值类型的数据都是保存在栈内存里的,特点:体积小,速度快
+    //引用类型的数据都是保存在堆内存里的,特点:体积大,速度慢
+
+
+    /*对象数据类型在内存空间里执行的步骤:
+    * 1.首先开辟一个内存空间,假设引用地址是xxxffoo;
+    * 2.将对象的属性名和属性值保存在这个内存空间里
+    * 3.把引用地址xxxffoo赋值给变量obj1,这样obj1就指向了开辟的内存空间
+    * */
+
+
+
+</script>
+</body>
+</html>

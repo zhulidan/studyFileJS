@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+     // == 两边数据类型不一样的时候,就会发生数据类型转化
+    //对象 == 对象  比较的引用地址
+     //[] == []  false
+    //对象 == 字符串 对象通过调用toString()转换成字符串,然后再比较
+    //[1] == "1"; true  [] == "1" false
+    //对象 == 布尔  左右两边都转换成相同的数据类型(数类型),然后再比较,对象首先转化成字符串,然后再通过Number()转化成数类型 ,布尔是通过Number()强制转换成数类型
+    //[] == false --> true   [1] == true -->true
+    //"1" ->Number("1")->1
+    //true ->Number(true) -->1
+    //对象 == 数字  把对象首先通过调用toString()转化成字符串然后再通过Number()转换成数类型
+    //[]==1 -->false  [1,2] == 0 -->false
+                         //"1,2"->Number("1,2")-NaN
+
+    //布尔 == 字符串 //两边都先转化成数类型,然后再比较
+    //true == "aa"  false =="0" true == "123"
+    //1  == NaN     0 == 0      1 == 123
+
+    //布尔 == 数字   //布尔转换成数类型
+    //true == 124  true == 1  false == 0
+
+    //字符串 == 数字  //字符串转换成数字
+    //"aa" = 11 -->false "1" == 1 -->true
+    //NaN == NaN //任何数(包括它自己)和NaN比较的时候都是false
+    //undefined == null -->true
+    //undefined === null -->false
+
+    //null和undefined和其他数比较都是false,比较的时候不再遵循上面的规律
+//    null ==0
+//    undefined == 1
+//    null == []
+//    undefined == "aa"
+
+</script>
+</body>
+</html>

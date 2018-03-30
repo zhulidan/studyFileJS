@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //求0-10之间不能被3整除的数之和
+    var total = null;
+    for (var i = 0; i <= 10; i++) {
+        //第一种写法
+/*        if(i%3==0){
+
+        }else{
+            total += i;
+        }*/
+        //0,1,2
+        //第二种写法
+        if (i % 3) {//i%3的结果如果是1或者2表示不能被3整除 如果结果是0表示可以被3整除
+            total += i;
+        }
+        //第三种写法
+        //i % 3 == 0 ? null : total += i;
+
+    }
+    console.log(total);
+
+
+    //递归思想 : 自己调用自己
+    function sum(n){
+        if(n==0){
+            return 0;
+        }
+        if(n%3==0){//能被3整数,就不进行相加,直接调用自己
+            return sum(n-1);
+        }
+       return n+sum(n-1); // 把n+sum(n-1)这个结果返回
+    }
+    var result = sum(10);
+    console.log(result);
+    //0-10
+    //10+9+8+7+6+5+4+3+2+1+0
+
+/*
+    0-10之间累加的执行步骤:
+       10+sum(9)  n =10
+       10+9+sum(8) n = 9
+       10+9+8+sum(7) n =8
+       10+9+8+7+sum(6); n= 7
+       10+9+8+7+6+sum(5) n =6
+        ......
+       10+9+8+7+6+5+4+3+2+1+0
+ */
+
+/*
+    0-10之间不能被3整除的数之和的步骤:
+        10+sum(9)
+        10+8+sum(7)
+        10+8+7+sum(6)
+        10+8+7+sum(5)
+        10+8+7+5+sum(4)
+        10+8+7+5+4+sum(3)
+        10+8+7+5+4+sum(2);
+        10+8+7+5+4+2+sum(1);
+        10+8+7+5+4+2+1+0
+ */
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //求和:求的是有效数之和
+    /*function sum(){
+     //        console.log(arguments.length);
+     var total = null;
+     for(var i =0;i<arguments.length;i++){
+     total+=arguments[i];//total = total+arguments[i]
+     //i = 0; total = null+10 ->total = Number(null)+10->10
+     //i = 1; total = total +arguments[1] = 10+5 = 15
+     //i = 2; total = total+arguments[2] = 15+"zhufeng" = "15zhufeng"
+     }
+     return total;
+
+     }*/
+
+    function sum() {
+        var total = null;
+        for (var i = 0; i < arguments.length; i++) {
+            //在累加之前,判断下传的参数是否是有效数(isNaN());isNaN()有效数->false ,不是有效数返回的是true;
+//            if(isNaN(arguments[i])){//true不是有效数
+//
+//            }else{
+//                total += arguments[i];
+//            }
+            //i = 0; total = null+10 ->total = Number(null)+10->10
+            //i = 1; total = total +arguments[1] = 10+5 = 15
+            //i = 2 ;"zhufeng" 不进行累加
+            //i = 3 ;total = total+arguments[3]= 15 +Number("111")  ->15111;
+            if(!isNaN(arguments[i])){//有效数isNaN()->false; !false ->true
+                total += Number(arguments[i]);
+            }
+
+            //三元运算符
+            //isNaN(arguments[i])? null : total += arguments[i];
+
+        }
+        return total;
+
+    }
+
+    //三元运算符
+    //条件判断?条件成功执行这边的语句:条件失败执行这边的语句
+//    var a =  3<5 ? "3小于5" : "3大于5";
+//    console.log(a);
+
+
+    console.log(sum(10, 5, "zhufeng","111"));
+    //    sum(10,5,6,6,7,7)
+    //    sum(20,34,1,1,1,1,1,1,1,15,3)
+
+</script>
+</body>
+</html>

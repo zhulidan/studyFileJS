@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*if(条件){
+        条件成功执行这儿的内容
+    }else{
+        条件不成功执行这儿的内容
+    }
+    */
+   // if...else if...else if... else
+    //哪个条件判断成功,就执行条件判断成功下面的语句,只执行一次
+    //适合多种情况的处理
+   /* if(条件1){
+        条件1成功执行这边;
+        下面的else if和else里的语句都不再执行
+    }else if(条件2){
+        条件1不成功,才会这边这边
+        条件2成功执行这边
+        下面的else if和else里的语句都不再执行
+    }else if(条件3){
+        条件1,条件2都不成功
+        条件3成功执行这边
+        下面else语句不再执行
+    }else{
+        条件1,条件2,条件3都不成功则执行这边
+    }*/
+    var num = 5;
+    if(num>5){
+        console.log("大于5的数")
+    }else if(num == "5"){//如果要走到这边,必须上面if(num>3)这个条件不满足
+        console.log("等于5的数")
+    }else{//必须上面两个条件都不满足
+        console.log("小于5的数")
+    }
+    //switch 语句 一个表达式有多种值多种情况的处理 (多条分支处理);
+    //case下面的语句执行完之后要加break表示退出整个switch语句,如果不加break,会忽视case后面的值,直接执行下面的语句
+    var  day = 2;
+    switch (day) {  //day===1 三个等号表示绝对相等(不仅值相等,数据类型也要相等)
+        case 1 :
+            alert(1);
+            console.log("星期一");
+            break;//跳出switch语句,下面的语句都不再执行
+        case 2 :
+            alert(2);
+            console.log("星期二");
+            break;
+        case 3 :
+            console.log("星期三");
+            break;
+        case 4 :
+            console.log("星期四");
+            break;
+        case 5 :
+            console.log("星期五");
+            break;
+        case 6 :
+            console.log("星期六");
+            break;
+        default :
+            console.log("星期日");
+    }
+
+    //1=="1"  true 两个等号比较时,左右两边值会自动进行数据类型转换
+    //1==="1" false 三个等号比较时,必须是数据类型和值都相等才能返回true
+
+
+</script>
+</body>
+</html>

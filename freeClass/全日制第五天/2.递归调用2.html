@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //1-5之间的数相乘  5*4*3*2*1
+        function fn(n){
+            if(n ==1){
+                return 1;
+            }
+            return n*fn(n-1);
+        }
+    var res = fn(5);
+    res = 5*4*3*2*1;
+    console.log(res);
+
+
+    //执行步骤
+    //n = 5 5*fn(4)
+    //n = 4 5*4*fn(3)
+    //n = 3 5*4*3*fn(2)
+    //n = 2 5*4*3*2*fn(1)
+    //n = 1 5*4*3*2*1
+
+
+
+</script>
+</body>
+</html>

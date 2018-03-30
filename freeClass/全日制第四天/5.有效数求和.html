@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>有效数求和</title>
+</head>
+<body>
+<script>
+    function sum(){
+        //1.获得到每个实参 2.所有实参求和 3.判断实参是否是有效数并且确保累加时每个实参是数类型的
+        //arguments  {0:10,1:5,2:"zhufeng",3:"111",callee:function sum(){},length:4}
+        //0--arguments.length-1
+        var total = null;
+       for(var i = 0;i<arguments.length;i++){
+            //arguments[i] 每个实参
+           //判断是否是有效数
+           var  cur = arguments[i];
+           if(!isNaN(cur)){//1.是有效数 (false) 2.!false ->true 3.if条件判断
+               total += Number(cur);
+           }
+       }
+        return total;
+    }
+   var total =  sum(10,5,"zhufeng","111");
+    console.log(total);
+
+</script>
+</body>
+</html>

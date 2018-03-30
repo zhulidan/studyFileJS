@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //插入排序的思想
+    //首先拿出第一张牌放在左手
+    //依次将其他的牌拿出来跟左手的牌倒着比较,从左手的倒数第一张牌开始比较,如果左手的牌比当前拿的牌大,则一直往前比较....直到遇到左手的牌比当前这张牌大,如果一直比到头也没发现比当前这张牌小,则把当前这张牌放在首位置
+
+    var ary = [6, 3, 7, 6, 2, 4];
+    function insertSort(ary) {
+        var left = [];//左手
+        //ary.splice(0,1)->[6]
+        var res = ary.splice(0, 1)[0];//
+        left.push(res);
+        for (var i = 0; i < ary.length; i++) {
+            var cur = ary[i];//当前拿的牌
+            //分别和左手的每一项倒着比较
+            for (var j = left.length - 1; j >= 0;) {
+                //left[j]左手拿的牌
+                if (left[j] > cur) {
+                    j--;
+                    if (j == -1) {//已经比到头也没发现比当前这张牌小的
+                        left.unshift(cur);
+                    }
+                } else {
+                    //把当前拿着的这张牌放到左手这张牌的后面的牌的前面
+                    left.splice(j + 1, 0, cur);
+                    break;//退出本层循环
+                }
+            }
+        }
+        return left;
+    }
+
+    console.log(insertSort(ary));
+
+</script>
+</body>
+</html>

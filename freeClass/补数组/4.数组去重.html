@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //数组去重:把数组中重复的项去掉
+    var ary = [1,2,33,33,33,2];//[1,2,33,33,2]
+    //方法一:双for循环
+    //第一项和第二项及以后的数比较
+    //第二项和第三项及以后的数比较
+    //第三项和第四项及以后的数比较
+    //...倒数第二项和倒数第一项
+    //最后一项不用再和其他的数比较,因为只有最后一项
+    for(var i = 0;i<ary.length-1;i++){
+        var preAry = ary[i];//前面的一项
+        for(var j =i+1;j<ary.length;j++ ){
+            var nextPre = ary[j];//前面一项的后面的那些项
+            if(preAry == nextPre){
+                ary.splice(j,1);//重复的这一项从数组中删除掉,会发生数组的塌陷
+                j--;
+            }
+        }
+    }
+   // console.log(ary);
+    //数组去重优化: 利用对象的原理去重
+    //把数组里的每一项分别作为对象的属性名和属性值存在里面
+    var ary = [1,2,33,33,33,2];
+    var obj = {};//{1:1,2:2,33:33}
+    for(var  i = 0; i<ary.length;i++){
+        var cur = ary[i];
+      if(obj[cur]==cur){//obj[1]==1 ->1 == 1
+          ary.splice(i,1);
+          i--;
+      } else{
+         obj[cur] = cur;
+      }
+    }
+    obj = null;//把定义的obj对象销毁掉
+    console.log(ary);
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //冒泡排序:小的数排在前面,大的数排在后面
+    var ary = [12,3,15,33,2]; //[2,3,12,15,33]
+    for(var j = 0;j<ary.length-1;j++){ //控制着执行多少轮
+        //0-3 执行四次也就执行四轮
+        for(var i = 0;i<ary.length-1-j;i++){
+        var temp = null;
+        //ary[i]前一项 ary[i+1]后一项
+            if (ary[i] > ary[i + 1]) {
+                temp = ary[i];
+                ary[i] = ary[i + 1];
+                ary[i + 1] = temp;
+            }
+        }
+    }
+    console.log(ary);
+//    //第一轮
+//    for(var i = 0;i<ary.length-1-0;i++){
+//        var temp = null;
+//        //ary[i]前一项 ary[i+1]后一项
+//        if(ary[i]>ary[i+1]){
+//            temp = ary[i];
+//            ary[i] = ary[i+1];
+//            ary[i+1] = temp;
+//        }
+//    }
+//    console.log(ary);
+//    //第二轮
+//    for(var i = 0;i<ary.length-1-1;i++){
+//        var temp = null;
+//        //ary[i]前一项 ary[i+1]后一项
+//        if(ary[i]>ary[i+1]){
+//            temp = ary[i];
+//            ary[i] = ary[i+1];
+//            ary[i+1] = temp;
+//        }
+//    }
+//
+//    console.log(ary);
+//    //第三轮
+//    for(var i = 0;i<ary.length-1-2;i++){
+//        var temp = null;
+//        //ary[i]前一项 ary[i+1]后一项
+//        if(ary[i]>ary[i+1]){
+//            temp = ary[i];
+//            ary[i] = ary[i+1];
+//            ary[i+1] = temp;
+//        }
+//    }
+//    console.log(ary);
+//
+//    //第四轮
+//    for(var i = 0;i<ary.length-1-3;i++){
+//        var temp = null;
+//        //ary[i]前一项 ary[i+1]后一项
+//        if(ary[i]>ary[i+1]){
+//            temp = ary[i];
+//            ary[i] = ary[i+1];
+//            ary[i+1] = temp;
+//        }
+//    }
+//    console.log(ary);
+//    var c= null;
+//    var a = 5;
+//    var b = 6;
+//   c = a;
+//   a = b ;
+//   b = c;
+//    console.log(a);
+//    console.log(b)
+
+
+
+
+
+
+</script>
+</body>
+</html>

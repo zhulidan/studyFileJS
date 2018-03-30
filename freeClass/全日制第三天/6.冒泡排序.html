@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //冒泡排序的原理:像气泡一样一个一个往上冒,轻的在上面,重的在下面
+    //在数组这边,小的在前面,大的在后面
+    var ary = [34,12,2,7,18];//[2,7,12,18,34]
+    //12 2 7 18 34
+    //2 7 12 18 34
+    //两两比较,如果前者比后者大,则它两交换位置
+    //每轮比较都是把最大的值排到最后去
+    //比较多少轮 每轮多少次
+    //怎么样两两交换数据
+
+//    var a = 12;
+//    var b = 5;
+//    //a,b交换值
+//    //值类型的数据交换值需要定义一个中介变量
+//    var c = null;
+//    c = a;//把a的值先保存下来,这样a的值就不会丢失的
+//    a = b; //a= 5;
+//    b = c;  //b = 12
+//    console.log(a);
+//    console.log(b);
+
+    //第一轮 4次
+    var ary = [56,24,15,4,2];
+//    for(var i= 0;i<ary.length-1-0;i++){
+//        //ary[0]  ary[1]
+//        //ary[1]  ary[2]
+//        //ary[2] ary[3]
+//        var temp = null;
+//        //前者ary[i]  后者ary[i+1]
+//        if(ary[i]>ary[i+1]){
+//            temp = ary[i];
+//            ary[i] = ary[i+1];
+//            ary[i+1] = temp;
+//        }
+//      }
+//    console.log(ary);
+//
+//    //第二轮 3次
+//    for(var i = 0;i<ary.length-1-1;i++){
+//        var temp = null;
+//        if(ary[i]>ary[i+1]){
+//            temp = ary[i];
+//            ary[i] = ary[i+1];
+//            ary[i+1] = temp;
+//        }
+//    }
+//
+//    console.log(ary);
+//
+//    //第三轮 2次
+//    for(var i = 0;i<ary.length-1-2;i++){
+//        var temp = null;
+//        if(ary[i]>ary[i+1]){
+//            temp = ary[i];
+//            ary[i] = ary[i+1];
+//            ary[i+1] = temp;
+//        }
+//    }
+//    console.log(ary);
+//    //第四轮 1次
+//    for(var i = 0;i<ary.length-1-3;i++){
+//        var temp = null;
+//        if(ary[i]>ary[i+1]){
+//            temp = ary[i];
+//            ary[i] = ary[i+1];
+//            ary[i+1] = temp;
+//        }
+//    }
+//    console.log(ary);
+
+    //数组的长度是5,现在循环了四次(0-3)
+    //每轮两两比较的次数是递减的
+    for(var j = 0;j<ary.length-1;j++){//一共执行多少轮
+        for(var i = 0;i<ary.length-1-j;i++){ //每轮执行多少次
+                var temp = null;
+                if(ary[i]>ary[i+1]){
+                    temp = ary[i];
+                    ary[i] = ary[i+1];
+                    ary[i+1] = temp;
+                }
+        }
+        console.log(ary);
+    }
+
+</script>
+</body>
+</html>
